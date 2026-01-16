@@ -254,6 +254,37 @@ img{
   .pill{flex-wrap:wrap; justify-content:center; text-align:center;}
   .drawerPanel{right: 8px; top: 8px;}
 }
+
+/* =========================
+   LIMPIEZA CTA EN CELULAR
+   ========================= */
+@media (max-width: 768px){
+
+  /* Ocultar botones duplicados del header */
+  .navctas{
+    display:none !important;
+  }
+
+  /* Ocultar CTA grande del hero */
+  .ctaRow{
+    display:none !important;
+  }
+
+  /* Mantener SOLO botones flotantes */
+  .floatCta{
+    gap:10px;
+  }
+
+  .fab{
+    font-size:14px;
+    padding:10px 12px;
+    border-radius:12px;
+  }
+
+  .fab span{
+    display:none; /* solo icono */
+  }
+}
   </style>
 </head>
 
