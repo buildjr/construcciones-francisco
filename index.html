@@ -323,7 +323,39 @@ h1{
     color: #1f2937; /* mantener plomo en celular */
   }
 }
-  </style>
+  
+/* ===== TITULO SERIO DEFINITIVO ===== */
+h1{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+  font-weight: 900 !important;
+  color:#1f2937 !important;
+  text-shadow: 0 6px 18px rgba(31,41,55,.35);
+  letter-spacing:-0.4px;
+}
+
+@media (max-width:768px){
+  h1{
+    font-size:26px !important;
+    line-height:1.18 !important;
+    text-align:center !important;
+  }
+}
+
+
+/* ===== AJUSTE FINAL TAMAÑO (GARANTIZAR 2 LINEAS) ===== */
+h1{
+  max-width: 760px !important; /* permite que la segunda línea no se parta */
+  font-size: 38px !important;  /* baja tamaño en escritorio */
+}
+
+@media (max-width:768px){
+  h1{
+    font-size:22px !important; /* evita 3 líneas en móvil */
+    line-height:1.22 !important;
+  }
+}
+
+</style>
 </head>
 
 <body>
@@ -374,7 +406,7 @@ h1{
       <div class="container heroWrap">
         <div class="heroCard heroMain">
           <span class="pill">📍 Sevilla y alrededores · ⭐ 38+ años de experiencia · Presupuesto sin compromiso</span>
-          <h1><span style='color:#2563eb'>Reformas en general con</span> <span style="background:linear-gradient(90deg, var(--navy), var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent;"><span style='color:#2563eb'>acabados elegantes</span></span></h1>
+          <h1>Soluciones integrales<br>en construcción y reformas</h1>
           <p class="lead">
             Queridos y apreciados vecinos y vecinas: tenemos una experiencia de <b>más de 38 años</b> en construcción y reformas.
             Contamos con profesionales para resolver tu obra de principio a fin, con comunicación clara y trabajo serio.
