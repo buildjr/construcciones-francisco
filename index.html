@@ -10,8 +10,8 @@
       --bg:#ffffff;
       --ink:#0b1220;
       --muted:#4b5563;
-      --line:#e5e7eb;
-      --soft:#f6f7fb;
+      --line:#d1d5db;
+      --soft:#f3f4f6;
 
       /* Paleta elegante (sin arcoiris) */
       --navy:#0b2a4a;
@@ -25,16 +25,20 @@
       --accent: var(--gold);
       --accent2: var(--navy2);
 
+      --plomo:#6b7280;
+      --plomo2:#9ca3af;
+      --paper:#ffffff;
+      --bg:#ffffff;
+      --soft:#f3f4f6;
+
       --shadow: 0 18px 50px rgba(2, 6, 23, .10);
       --radius: 18px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{
-      margin:0;
+    body{margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      background: var(--bg);
-      color: var(--ink);
+      background: #ffffff;color: var(--ink);
       overflow-x:hidden;
     }
     a{color:inherit; text-decoration:none}
@@ -74,8 +78,7 @@ img{
 
     header{
       position: sticky; top:0; z-index: 50;
-      background: rgba(255,255,255,.88);
-      backdrop-filter: blur(12px);
+      background: #ffffff;
       border-bottom: 1px solid var(--line);
     }
     .nav{display:flex; align-items:center; justify-content:space-between; padding: 12px 0; gap: 12px;}
@@ -127,7 +130,7 @@ img{
 
     .hero{
       padding: 26px 0 18px;
-      background: radial-gradient(900px 420px at 15% 0%, rgba(11, 42, 74, .12), transparent 60%), radial-gradient(900px 420px at 85% 10%, rgba(202, 168, 91, .12), transparent 60%), linear-gradient(180deg,#fff,#fff);
+      background: linear-gradient(180deg, #ffffff, #f3f4f6);
       border-bottom: 1px solid var(--line);
     }
     .heroWrap{display:grid; grid-template-columns: 1.15fr .85fr; gap: 18px; align-items: stretch;}
@@ -135,14 +138,20 @@ img{
 
     .heroCard{background:#fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden;}
     .heroMain{padding: 22px}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 8px 12px; border-radius: 999px;
-      background: linear-gradient(90deg, rgba(11, 42, 74, .08), rgba(202, 168, 91, .10));
-      border: 1px solid rgba(37, 99, 235, .18);
-      font-weight: 900; color: #0b1220; font-size: 13px;
-    }
-    h1{margin: 12px 0 10px; font-size: clamp(30px, 4vw, 52px); line-height: 1.06; letter-spacing: -0.7px;}
+    
+.pill{
+  display:inline-flex; align-items:center; gap:8px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  color: #111827;
+  font-weight: 900;
+  font-size: 13px;
+  box-shadow: 0 10px 22px rgba(2,6,23,.06);
+}
+
+h1{margin: 12px 0 10px; font-size: clamp(30px, 4vw, 52px); line-height: 1.06; letter-spacing: -0.7px;}
     .lead{margin:0; color: var(--muted); line-height: 1.7; font-size: 15.6px; max-width: 80ch;}
     .ctaRow{display:flex; flex-wrap:wrap; gap: 12px; margin-top: 16px;}
     .kpis{display:grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 18px;}
@@ -170,7 +179,7 @@ img{
     .cards3{grid-template-columns: repeat(3, 1fr);}
     @media (max-width: 980px){ .cards3{grid-template-columns:1fr} }
 
-    .card{background:#fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px;}
+    .card{background:#fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 16px 42px rgba(2,6,23,.08); padding: 16px;}
     .serviceIcon{width:46px; height:46px; border-radius: 16px; display:grid; place-items:center; color:#fff; font-weight: 900; background: linear-gradient(135deg, var(--navy), var(--navy2)); box-shadow: 0 14px 30px rgba(37, 99, 235, .20);}
     .serviceIcon.alt{background: linear-gradient(135deg, var(--green), #12813c); box-shadow: 0 14px 30px rgba(22, 163, 74, .16);} 
 .serviceIcon.alt2{background: linear-gradient(135deg, var(--gold), #b8923f); box-shadow: 0 14px 30px rgba(202, 168, 91, .18);} 
@@ -206,7 +215,7 @@ img{
     .contactBox .num{font-size: 20px; font-weight: 1000; margin-top: 4px}
     .row{display:flex; flex-wrap:wrap; gap: 10px; margin-top: 10px}
 
-    footer{padding: 26px 0 44px; border-top: 1px solid var(--line); background: var(--soft);}
+    footer{padding: 26px 0 44px; border-top: 1px solid var(--line); background: #f3f4f6;}
     .foot{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap: 12px; color: var(--muted); font-weight: 800}
 
     .floatCta{position: fixed; right: 16px; bottom: 16px; z-index: 70; display:flex; gap: 10px;}
@@ -283,6 +292,22 @@ img{
 
   .fab span{
     display:none; /* solo icono */
+  }
+}
+
+@media (max-width: 768px){
+  .pill{justify-content:center; width:100%;}
+}
+
+/* =========================
+   AJUSTE TITULO SOLO CELULAR
+   ========================= */
+@media (max-width: 768px){
+  h1{
+    font-size: 24px;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+    text-align: center;
   }
 }
   </style>
