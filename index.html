@@ -218,7 +218,75 @@ img{
     .lightboxInner{width:min(1000px, 96vw); border-radius: 18px; overflow:hidden; background:#fff; border:1px solid var(--line); box-shadow: var(--shadow); position:relative;}
     .lightboxInner img{width:100%; height:auto}
     .closeX{position:absolute; top:10px; right:10px; border:1px solid var(--line); background:#fff; border-radius: 12px; padding: 10px 12px; cursor:pointer; font-weight: 1000;}
-  </style>
+  /* =========================
+   MEJORAS PARA CELULAR
+   ========================= */
+@media (max-width: 768px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .ctaRow {
+    justify-content: center;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .heroWrap {
+    grid-template-columns: 1fr;
+  }
+
+  .kpis {
+    grid-template-columns: 1fr;
+  }
+
+  .cards3 {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+}
+</style>
 </head>
 
 <body>
