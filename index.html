@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Francisco | Construcción & Reformas en Sevilla</title>
+  <meta name="description" content="Reformas en general en Sevilla: albañilería, fontanería, electricidad, carpintería, herrería, pintura, diseños y apoyo técnico. Presupuesto sin compromiso." />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#0b1220;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --soft:#f6f7fb;
+
+      /* Paleta elegante (sin arcoiris) */
+      --navy:#0b2a4a;
+      --navy2:#123a66;
+      --gold:#caa85b;
+      --green:#16a34a;
+
+      /* Aliases (compatibilidad) */
+      --brand: var(--navy);
+      --brand2: var(--green);
+      --accent: var(--gold);
+      --accent2: var(--navy2);
+
+      --shadow: 0 18px 50px rgba(2, 6, 23, .10);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+img{
+  image-rendering: auto;
+  -ms-interpolation-mode: bicubic;
+}
+.heroMedia{
+  background-size: cover;
+  background-position: center;
+  filter: contrast(1.05) saturate(1.05);
+}
+.gItem img{
+  object-fit: cover;
+  filter: contrast(1.05) saturate(1.05);
+}
+
+
+    .container{width:min(1160px, 92vw); margin:0 auto;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font-weight: 900;
+      box-shadow: var(--shadow);
+      transition: transform .14s ease, box-shadow .14s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: 0 22px 55px rgba(2, 6, 23, .14);}
+    .btn.primary{background:#3b82f6;color:#fff;border:none}
+    .btn.secondary{background:#2563eb;color:#fff;border:none}
+
+    header{
+      position: sticky; top:0; z-index: 50;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding: 12px 0; gap: 12px;}
+    .brand{display:flex; align-items:center; gap: 12px;}
+    .brandLogo{
+      width:54px;
+      height:54px;
+      object-fit:contain;
+      border-radius:12px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+.logo{
+      width:44px; height:44px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow:hidden;
+    }
+    .logo::after{
+      content:"";
+      position:absolute; inset:-10px;
+      background: radial-gradient(circle at 30% 30%, rgba(202,168,91,.55), transparent 55%);
+      transform: rotate(8deg);
+    }
+.brand b{display:block; font-size: 14px; letter-spacing:.3px}
+    .brand span{display:block; font-size: 12px; color: var(--muted); font-weight: 700}
+
+    nav a{font-weight: 900; color: #0b1220; padding: 10px 12px; border-radius: 999px;}
+    nav a:hover{background: var(--soft);}
+    .navlinks{display:flex; align-items:center; gap: 6px;}
+    .navctas{display:flex; align-items:center; gap: 10px;}
+    .menuBtn{display:none}
+    @media (max-width: 900px){ .navlinks{display:none} .menuBtn{display:inline-flex} }
+
+    .drawer{position:fixed; inset:0; display:none; background: rgba(15, 23, 42, .35); backdrop-filter: blur(10px); z-index: 80;}
+    .drawer.open{display:block}
+    .drawerPanel{
+      position:absolute; right: 12px; top: 12px;
+      width:min(420px, calc(100vw - 24px));
+      background:#fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .drawerPanel a{display:block; padding: 12px 12px; border-radius: 14px; margin-top: 10px; background: var(--soft); font-weight: 900;}
+
+    .hero{
+      padding: 26px 0 18px;
+      background: radial-gradient(900px 420px at 15% 0%, rgba(11, 42, 74, .12), transparent 60%), radial-gradient(900px 420px at 85% 10%, rgba(202, 168, 91, .12), transparent 60%), linear-gradient(180deg,#fff,#fff);
+      border-bottom: 1px solid var(--line);
+    }
+    .heroWrap{display:grid; grid-template-columns: 1.15fr .85fr; gap: 18px; align-items: stretch;}
+    @media (max-width: 980px){ .heroWrap{grid-template-columns: 1fr} }
+
+    .heroCard{background:#fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden;}
+    .heroMain{padding: 22px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px; border-radius: 999px;
+      background: linear-gradient(90deg, rgba(11, 42, 74, .08), rgba(202, 168, 91, .10));
+      border: 1px solid rgba(37, 99, 235, .18);
+      font-weight: 900; color: #0b1220; font-size: 13px;
+    }
+    h1{margin: 12px 0 10px; font-size: clamp(30px, 4vw, 52px); line-height: 1.06; letter-spacing: -0.7px;}
+    .lead{margin:0; color: var(--muted); line-height: 1.7; font-size: 15.6px; max-width: 80ch;}
+    .ctaRow{display:flex; flex-wrap:wrap; gap: 12px; margin-top: 16px;}
+    .kpis{display:grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 18px;}
+    @media (max-width: 520px){ .kpis{grid-template-columns:1fr} }
+    .kpi{padding: 14px; border-radius: 16px; background: var(--soft); border: 1px solid var(--line);}
+    .kpi b{font-size: 18px}
+    .kpi div{margin-top:4px; color: var(--muted); font-weight: 700; font-size: 12.5px}
+
+    .heroMedia{
+      position:relative; min-height: 420px;
+      background: linear-gradient(180deg, rgba(15, 23, 42, .55), rgba(15, 23, 42, .10)), url("img9.jpg") center/cover;
+      border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden; border: 1px solid rgba(2,6,23,.08);
+    }
+    .heroMedia::after{content:""; position:absolute; inset:0; background: radial-gradient(900px 420px at 30% 0%, rgba(255,255,255,.22), transparent 60%);}
+    .heroMediaInner{position:absolute; left: 14px; right: 14px; bottom: 14px;}
+    .mediaCard{background: rgba(255,255,255,.92); border: 1px solid rgba(226, 232, 240, .9); border-radius: 16px; padding: 14px; box-shadow: 0 16px 40px rgba(2,6,23,.18);}
+    .mediaCard b{display:block; font-size: 14px}
+    .mediaCard p{margin:6px 0 0; color: var(--muted); line-height: 1.55; font-weight: 700; font-size: 13px}
+
+    section{padding: 34px 0}
+    .sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap: 14px; margin-bottom: 14px;}
+    .sectionHead h2{margin:0; font-size: 24px}
+    .sectionHead p{margin:0; color: var(--muted); line-height: 1.6; max-width: 90ch; font-weight: 650}
+    .grid{display:grid; gap: 14px;}
+    .cards3{grid-template-columns: repeat(3, 1fr);}
+    @media (max-width: 980px){ .cards3{grid-template-columns:1fr} }
+
+    .card{background:#fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px;}
+    .serviceIcon{width:46px; height:46px; border-radius: 16px; display:grid; place-items:center; color:#fff; font-weight: 900; background: linear-gradient(135deg, var(--navy), var(--navy2)); box-shadow: 0 14px 30px rgba(37, 99, 235, .20);}
+    .serviceIcon.alt{background: linear-gradient(135deg, var(--green), #12813c); box-shadow: 0 14px 30px rgba(22, 163, 74, .16);} 
+.serviceIcon.alt2{background: linear-gradient(135deg, var(--gold), #b8923f); box-shadow: 0 14px 30px rgba(202, 168, 91, .18);} 
+.card h3{margin: 10px 0 6px; font-size: 16.5px}
+    .card p{margin:0; color: var(--muted); line-height: 1.65; font-weight: 650; font-size: 13.8px}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top: 12px}
+    .tag{padding: 7px 10px; border-radius: 999px; background: var(--soft); border: 1px solid var(--line); color: #0b1220; font-weight: 900; font-size: 12px;}
+
+    .gallery{grid-template-columns: repeat(12,1fr); gap: 12px;}
+    .gItem{grid-column: span 4; border-radius: 18px; overflow:hidden; border: 1px solid var(--line); background: var(--soft); cursor:pointer; box-shadow: var(--shadow);}
+    .gItem img{width:100%; height: 220px; object-fit:cover}
+    .gCap{padding: 12px 12px 14px; font-weight: 900; color: #0b1220}
+    @media (max-width: 980px){ .gItem{grid-column: span 6} }
+    @media (max-width: 640px){ .gItem{grid-column: span 12} }
+
+    .banner{border-radius: 26px; overflow:hidden; border: 1px solid var(--line); box-shadow: var(--shadow);
+      background: radial-gradient(900px 420px at 15% 20%, rgba(11,42,74,.10), transparent 60%),
+                 radial-gradient(900px 420px at 85% 20%, rgba(202,168,91,.12), transparent 60%),
+                 linear-gradient(180deg, #fff, #fff);}
+    .bannerInner{display:grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 18px; align-items:center;}
+    @media (max-width: 980px){ .bannerInner{grid-template-columns:1fr} }
+    .bannerPhoto{border-radius: 22px; overflow:hidden; border: 1px solid var(--line);}
+    .bannerPhoto img{width:100%; height: 320px; object-fit:cover}
+    .bannerCopy h2{margin:0 0 8px}
+    .bannerCopy p{margin:0; color: var(--muted); line-height:1.7; font-weight: 650}
+
+    .contactGrid{grid-template-columns: 1fr 1fr;}
+    @media (max-width: 980px){ .contactGrid{grid-template-columns:1fr} }
+    .contactCard{padding: 18px}
+    .contactBox{margin-top: 12px; padding: 14px; border-radius: 18px; border: 1px solid var(--line); background: var(--soft);}
+    .contactBox b{display:block; font-size: 13px}
+    .contactBox .num{font-size: 20px; font-weight: 1000; margin-top: 4px}
+    .row{display:flex; flex-wrap:wrap; gap: 10px; margin-top: 10px}
+
+    footer{padding: 26px 0 44px; border-top: 1px solid var(--line); background: var(--soft);}
+    .foot{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap: 12px; color: var(--muted); font-weight: 800}
+
+    .floatCta{position: fixed; right: 16px; bottom: 16px; z-index: 70; display:flex; gap: 10px;}
+    .fab{padding: 12px 14px; border-radius: 999px; border: none; color:#fff; font-weight: 1000; box-shadow: var(--shadow);}
+    .fab.wa{background:#16a34a;color:#fff}
+.fab.call{background:#dc2626;color:#fff}
+.lightbox{position: fixed; inset:0; background: rgba(15,23,42,.45); display:none; align-items:center; justify-content:center; z-index: 120; padding: 18px;}
+    .lightbox.open{display:flex}
+    .lightboxInner{width:min(1000px, 96vw); border-radius: 18px; overflow:hidden; background:#fff; border:1px solid var(--line); box-shadow: var(--shadow); position:relative;}
+    .lightboxInner img{width:100%; height:auto}
+    .closeX{position:absolute; top:10px; right:10px; border:1px solid var(--line); background:#fff; border-radius: 12px; padding: 10px 12px; cursor:pointer; font-weight: 1000;}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Inicio">
+        <img class="brandLogo" src="logo.png" alt="Construcciones Francisco">
+        <div>
+          <b>CONSTRUCCIONES FRANCISCO</b>
+          <span>Construcción & Reformas · Sevilla</span>
+        </div>
+      </a>
+
+      <nav class="navlinks" aria-label="Navegación">
+        <a href="#servicios">Servicios</a>
+        <a href="#porque">Por qué nosotros</a>
+        <a href="#galeria">Obras</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="navctas">
+        <button class="btn menuBtn" id="openMenu" type="button">☰ Menú</button>
+        <a class="btn secondary" href="tel:+34604455565">🔴 Llamar</a>
+        <a class="btn primary" href="https://wa.me/34677277861" target="_blank" rel="noreferrer">🟢 WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawerPanel">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+        <div style="font-weight:1000;">Menú</div>
+        <button class="btn" id="closeMenu" type="button">Cerrar ✕</button>
+      </div>
+      <a class="drawerLink" href="#servicios">Servicios</a>
+      <a class="drawerLink" href="#porque">Por qué nosotros</a>
+      <a class="drawerLink" href="#galeria">Obras</a>
+      <a class="drawerLink" href="#contacto">Contacto</a>
+      <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn secondary" href="tel:+34604455565">🔴 Llamar</a>
+        <a class="btn primary" href="https://wa.me/34677277861" target="_blank" rel="noreferrer">🟢 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container heroWrap">
+        <div class="heroCard heroMain">
+          <span class="pill">📍 Sevilla y alrededores · ⭐ 38+ años de experiencia · Presupuesto sin compromiso</span>
+          <h1><span style='color:#2563eb'>Reformas en general con</span> <span style="background:linear-gradient(90deg, var(--navy), var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent;"><span style='color:#2563eb'>acabados elegantes</span></span></h1>
+          <p class="lead">
+            Queridos y apreciados vecinos y vecinas: tenemos una experiencia de <b>más de 38 años</b> en construcción y reformas.
+            Contamos con profesionales para resolver tu obra de principio a fin, con comunicación clara y trabajo serio.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="https://wa.me/34677277861" target="_blank" rel="noreferrer">🟢 Pedir presupuesto por WhatsApp</a>
+            <a class="btn secondary" href="tel:+34604455565">🔴 Llamar ahora</a>
+            <a class="btn" href="#servicios">Ver servicios</a>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi"><b>38+ años</b><div>Experiencia y oficio</div></div>
+            <div class="kpi"><b>Integral</b><div>Viviendas, locales y comunidades</div></div>
+            <div class="kpi"><b>Calidad</b><div>Acabado fino y limpio</div></div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Reformas</span><span class="tag">Albañilería</span><span class="tag">Fontanería</span>
+            <span class="tag">Electricidad</span><span class="tag">Carpintería</span><span class="tag">Herrería</span>
+            <span class="tag">Pintura</span><span class="tag">Diseños</span>
+          </div>
+        </div>
+
+        <div class="heroMedia">
+          <div class="heroMediaInner">
+            <div class="mediaCard">
+              <b>Servicio de construcción confiable</b>
+              <p>No solo construimos y reformamos: ayudamos a que tu espacio quede cómodo, seguro y bonito.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>Nuestros servicios</h2>
+            <p>Todo en un solo lugar. Si tu reforma requiere coordinación de varios rubros, lo gestionamos para que sea más simple para ti.</p>
+          </div>
+          <span class="pill">Respuesta rápida por WhatsApp</span>
+        </div>
+
+        <div class="grid cards3">
+          <div class="card"><div class="serviceIcon">🧱</div><h3>Reformas en general</h3><p>Reformas parciales o completas: cocina, baño, suelos, paredes, techos, cambios de distribución y mejoras generales.</p></div>
+          <div class="card"><div class="serviceIcon alt">🚿</div><h3>Fontanería</h3><p>Fugas, grifería, tuberías, sanitarios, desagües y mantenimiento. Soluciones limpias y duraderas.</p></div>
+          <div class="card"><div class="serviceIcon alt2">⚡</div><h3>Electricidad</h3><p>Instalaciones, cuadros, puntos de luz y tomas. Revisión y mejora de seguridad eléctrica.</p></div>
+          <div class="card"><div class="serviceIcon">🪚</div><h3>Carpintería</h3><p>Puertas, armarios, muebles a medida, montaje y ajustes. Detalles que elevan el acabado final.</p></div>
+          <div class="card"><div class="serviceIcon alt">🧰</div><h3>Herrería</h3><p>Rejas, barandillas, estructuras metálicas y refuerzos. Seguridad y diseño.</p></div>
+          <div class="card"><div class="serviceIcon alt2">🎨</div><h3>Pintura</h3><p>Interiores y exteriores: alisados, reparaciones, acabados finos, protección y limpieza al entregar.</p></div>
+          <div class="card"><div class="serviceIcon">📐</div><h3>Diseños</h3><p>Propuestas de estilo y distribución para que tu reforma no solo funcione, sino que se vea moderna y elegante.</p></div>
+          <div class="card"><div class="serviceIcon alt">🏗️</div><h3>Aparejadores y arquitectos</h3><p>Apoyo técnico cuando sea necesario: planos, licencias y supervisión. Para proyectos más grandes o formales.</p></div>
+          <div class="card"><div class="serviceIcon alt2">🧱</div><h3>Albañilería</h3><p>Revoques, solados, muros, reparaciones, estructuras y obra civil. Base sólida para cualquier reforma.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="porque">
+      <div class="container">
+        <div class="sectionHead"><div><h2>¿Por qué nosotros?</h2><p>La diferencia está en los detalles: comunicación clara, orden, limpieza y acabados profesionales.</p></div></div>
+
+        <div class="grid cards3">
+          <div class="card"><div class="serviceIcon">✅</div><h3>Calidad</h3><p>Buscamos un resultado duradero y estético, cuidando cada fase del trabajo.</p></div>
+          <div class="card"><div class="serviceIcon alt">🤝</div><h3>Integridad</h3><p>Trabajo serio, comunicación honesta y compromiso con lo prometido. Sin sorpresas.</p></div>
+          <div class="card"><div class="serviceIcon alt2">⏱️</div><h3>Compromiso</h3><p>Planificación y entrega a tiempo según lo acordado, con buena administración de recursos.</p></div>
+        </div>
+
+        <div class="banner" style="margin-top: 16px;">
+          <div class="bannerInner">
+            <div class="bannerCopy">
+              <h2>De principio a fin</h2>
+              <p>Si tu proyecto es grande o pequeño, lo tomamos con la misma seriedad. Coordinamos tareas y mantenemos el orden para que tengas tranquilidad. <b>Presupuesto sin compromiso</b> y atención en Sevilla y alrededores.</p>
+              <div class="ctaRow" style="margin-top: 12px;">
+                <a class="btn primary" href="https://wa.me/34677277861" target="_blank" rel="noreferrer">📲 Solicitar presupuesto</a>
+                <a class="btn" href="#galeria">Ver obras</a>
+              </div>
+            </div>
+            <div class="bannerPhoto"><img src="img7.jpg" alt="Planos y diseño" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="container">
+        <div class="sectionHead"><div><h2>Obras y referencias</h2><p>Galería visual (ampliable) con ejemplos de rubros que atendemos.</p></div></div>
+
+        <div class="grid gallery">
+          <div class="gItem" data-full="img1.jpg"><img src="img1.jpg" alt="Carpintería" /><div class="gCap">Carpintería</div></div>
+          <div class="gItem" data-full="img2.jpg"><img src="img2.jpg" alt="Albañilería" /><div class="gCap">Albañilería</div></div>
+          <div class="gItem" data-full="img3.jpg"><img src="img3.jpg" alt="Fontanería" /><div class="gCap">Fontanería</div></div>
+          <div class="gItem" data-full="img4.jpg"><img src="img4.jpg" alt="Electricidad" /><div class="gCap">Electricidad</div></div>
+          <div class="gItem" data-full="img5.jpg"><img src="img5.jpg" alt="Pintura" /><div class="gCap">Pintura</div></div>
+          <div class="gItem" data-full="img6.jpg"><img src="img6.jpg" alt="Herrería" /><div class="gCap">Herrería</div></div>
+          <div class="gItem" data-full="img7.jpg"><img src="img7.jpg" alt="Diseño" /><div class="gCap">Diseño</div></div>
+          <div class="gItem" data-full="img8.jpg"><img src="img8.jpg" alt="Trabajo a medida" /><div class="gCap">Trabajo a medida</div></div>
+          <div class="gItem" data-full="img9.jpg"><img src="img9.jpg" alt="Reformas" /><div class="gCap">Reformas</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="sectionHead">
+          <div><h2>Contacto</h2><p>Escríbenos y cuéntanos qué necesitas. Si puedes, envía fotos y ubicación aproximada para darte una idea rápida.</p></div>
+          <span class="pill">Presupuesto sin compromiso</span>
+        </div>
+
+        <div class="grid contactGrid">
+          <div class="card contactCard">
+            <h3 style="margin:0 0 8px;">Francisco · Construcción & Reformas</h3>
+            <p>Atención en Sevilla y alrededores. Trabajo serio, limpio y con acabados profesionales.</p>
+
+            <div class="contactBox">
+              <b>WhatsApp</b>
+              <div class="num">677 27 78 61</div>
+              <div class="row">
+                <a class="btn primary" href="https://wa.me/34677277861" target="_blank" rel="noreferrer">📲 Escribir</a>
+                <a class="btn" href="tel:+34677277861">Llamar</a>
+              </div>
+            </div>
+
+            <div class="contactBox">
+              <b>Teléfono</b>
+              <div class="num">604 455 565</div>
+              <div class="row">
+                <a class="btn secondary" href="tel:+34604455565">🔴 Llamar ahora</a>
+              </div>
+            </div>
+
+            <div class="contactBox">
+              <b>Qué enviar por WhatsApp</b>
+              <p style="margin-top:6px;">1) Tipo de trabajo · 2) Dirección aproximada · 3) Fotos/medidas · 4) Fecha ideal.</p>
+            </div>
+          </div>
+
+          <div class="card contactCard" style="padding:0; overflow:hidden;">
+            <div style="padding:18px; background:
+              radial-gradient(900px 420px at 20% 0%, rgba(11,42,74,.10), transparent 60%),
+              radial-gradient(900px 420px at 85% 5%, rgba(202,168,91,.12), transparent 60%),
+              linear-gradient(180deg, #fff, #fff);">
+              <h3 style="margin:0 0 8px;">Atención local en Sevilla</h3>
+              <p>Podemos adaptar esta web para incluir mapa, correo, horarios y formulario. Esta versión prioriza WhatsApp y llamadas (lo más rápido).</p>
+              <div class="ctaRow">
+                <a class="btn primary" href="https://wa.me/34677277861" target="_blank" rel="noreferrer">🟢 WhatsApp</a>
+                <a class="btn" href="#servicios">Ver servicios</a>
+              </div>
+            </div>
+            <img src="img2.jpg" alt="Trabajo en obra" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container foot">
+        <div>© 2026 · Francisco — Construcción & Reformas</div>
+        <div>Sevilla y alrededores · WhatsApp 677 27 78 61 · Tel. 604 455 565</div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="floatCta" aria-label="Accesos rápidos">
+    <a class="fab wa" href="https://wa.me/34677277861" target="_blank" rel="noreferrer">WhatsApp</a>
+    <a class="fab call" href="tel:+34604455565">Llamar</a>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightboxInner">
+      <button class="closeX" id="closeX" type="button">Cerrar ✕</button>
+      <img id="lightboxImg" src="" alt="Imagen ampliada" />
+    </div>
+  </div>
+
+  <script>
+    const drawer = document.getElementById('drawer');
+    const openMenu = document.getElementById('openMenu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    if(openMenu) openMenu.addEventListener('click', () => drawer.classList.add('open'));
+    if(closeMenu) closeMenu.addEventListener('click', () => drawer.classList.remove('open'));
+    if(drawer) drawer.addEventListener('click', (e) => { if(e.target === drawer) drawer.classList.remove('open'); });
+    document.querySelectorAll('.drawerLink').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeXBtn = document.getElementById('closeX');
+
+    document.querySelectorAll('.gItem').forEach(item => {
+      item.addEventListener('click', () => {
+        lightboxImg.src = item.getAttribute('data-full');
+        lightbox.classList.add('open');
+      });
+    });
+
+    if(closeXBtn) closeXBtn.addEventListener('click', () => lightbox.classList.remove('open'));
+    if(lightbox) lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.classList.remove('open'); });
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') lightbox.classList.remove('open'); });
+  </script>
+</body>
+</html>
